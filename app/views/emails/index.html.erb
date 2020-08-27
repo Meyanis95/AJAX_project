@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <%= form_tag("/emails", method: "post", class: "form", id: "new-mail-form", remote: true)  do %>
+    <div class="text-center">
+                  <%= submit_tag("Recevoir un email", class: "btn btn-start-order") %>
+              </div>
+          <%end%>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+     <div class="table-responsive">
+       <table class="table table-striped">
+            <caption>List of emails</caption>
+            <thead>
+              <tr>
+                <th scope="col">Objects</th>
+              </tr>
+            </thead>
+            <tbody id="all-emails">
+              <% @emails.each do |email|%>
+              <tr>
+                <th scope="row" id="<%=email.id%>"><%= link_to email.object, email_path(email.id),  method: :get, remote: true %></th>
+                <%end%>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+    <div class="col-sm-6">
+     <div class="table-responsive">
+       <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" id="email-object-show"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td scope="col" id="email-body-show"></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>

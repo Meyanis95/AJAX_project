@@ -1,0 +1,4 @@
+document.getElementById("email-body-show").innerHTML = ""
+document.getElementById("email-body-show").insertAdjacentHTML("beforeend", "<%= j render 'show_email', email: @email %>");
+document.getElementById("email-object-show").innerHTML = ""
+document.getElementById("email-object-show").insertAdjacentHTML("beforeend", "<%= @email.object.capitalize%>");

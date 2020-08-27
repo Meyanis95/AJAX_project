@@ -1,0 +1,2 @@
+alert("nouvelle tâche crée");
+document.getElementById("<%= @category.title %>").insertAdjacentHTML("beforeend", "<%= j render 'task', book: @task %>")
